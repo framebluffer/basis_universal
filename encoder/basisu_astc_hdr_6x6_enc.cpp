@@ -1029,7 +1029,7 @@ private:
 
 		assert(n);
 		if (n == 1)
-			return std::pair(pat_indices[0], 0.0f);
+			return std::pair<int, float>(pat_indices[0], 0.0f);
 
 		float best_split_metric = -1.0f;
 		int best_split_pat = -1;
@@ -1061,7 +1061,7 @@ private:
 					continue;
 				
 				float dist = trial_vantage.get_distance(pUnique_pats[pat_index]);
-				dists.emplace_back(std::pair(dist, pat_index));
+				dists.emplace_back(std::pair<int, float>(dist, pat_index));
 
 				float_dists.push_back(dist);
 			}
@@ -1106,7 +1106,7 @@ private:
 			}
 		}
 
-		return std::pair(best_split_pat, best_split_dist);
+		return std::pair<int, float>(best_split_pat, best_split_dist);
 	}
 };
 
